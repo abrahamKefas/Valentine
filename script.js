@@ -86,13 +86,15 @@ function navigateTo(pageNumber) {
   currentPageEl.classList.add('fade-out');
   currentPageEl.classList.remove('active');
 
+  // Increase timeout on mobile for smoother transitions
+  const transitionDelay = window.innerWidth < 768 ? 500 : 400;
   setTimeout(() => {
     currentPageEl.classList.remove('fade-out');
     nextPageEl.classList.add('active');
     state.currentPage = pageNumber;
     if (pageNumber === 5) resetEnvelope();
     if (pageNumber === 3) startFallingPetals();
-  }, 400);
+  }, transitionDelay);
 }
 
 function handleYesClick() {
@@ -125,12 +127,13 @@ function handleTakeBouquet() {
   if (state.bouquetTaken) return;
   state.bouquetTaken = true;
   elements.bouquet.classList.add('bounce');
+  const bounceDelay = window.innerWidth < 768 ? 1200 : 800;
   setTimeout(() => {
     elements.bouquet.classList.remove('bounce');
     elements.bouquetMessage.classList.remove('hidden');
     elements.takeBouquet.classList.add('hidden');
     elements.nextToPage4.classList.remove('hidden');
-  }, 800);
+  }, bounceDelay);
 }
 
 let petalInterval;
@@ -138,11 +141,11 @@ function startFallingPetals() {
   elements.petalsContainer.innerHTML = '';
   // Reduce petals on mobile
   const petalCount = window.innerWidth < 768 ? 8 : 15;
-  const petalDelay = window.innerWidth < 768 ? 300 : 200;
+  const petalDelay = window.innerWidth < 768 ? 600 : 200;
   for (let i = 0; i < petalCount; i++)
     setTimeout(() => createPetal(), i * petalDelay);
   if (petalInterval) clearInterval(petalInterval);
-  const petalInterval2 = window.innerWidth < 768 ? 1000 : 600;
+  const petalInterval2 = window.innerWidth < 768 ? 2000 : 600;
   petalInterval = setInterval(() => {
     if (state.currentPage === 3) createPetal();
   }, petalInterval2);
@@ -159,7 +162,8 @@ function createPetal() {
   petal.style.height = petal.style.width;
   petal.style.opacity = Math.random() * 0.4 + 0.4;
   elements.petalsContainer.appendChild(petal);
-  setTimeout(() => petal.remove(), 9000);
+  const petalTimeout = window.innerWidth < 768 ? 12000 : 9000;
+  setTimeout(() => petal.remove(), petalTimeout);
 }
 
 function handlePhotoUpload(index, event) {
@@ -180,6 +184,8 @@ function triggerConfetti() {
   const hearts = ['💖', '💕', '💗', '💓', '💞', '💝', '❤️', '🩷', '✨', '🌸'];
   // Reduce confetti on mobile
   const confettiCount = window.innerWidth < 768 ? 25 : 60;
+  const confettiDelay = window.innerWidth < 768 ? 80 : 50;
+  const removeTimeout = window.innerWidth < 768 ? 6500 : 4500;
   for (let i = 0; i < confettiCount; i++) {
     setTimeout(() => {
       const confetti = document.createElement('span');
@@ -189,8 +195,8 @@ function triggerConfetti() {
       confetti.style.fontSize = Math.random() * 1.8 + 1 + 'rem';
       confetti.style.animationDelay = Math.random() * 0.3 + 's';
       elements.confettiContainer.appendChild(confetti);
-      setTimeout(() => confetti.remove(), 4500);
-    }, i * 50);
+      setTimeout(() => confetti.remove(), removeTimeout);
+    }, i * confettiDelay);
   }
 }
 
@@ -211,20 +217,24 @@ function handleEnvelopeClick() {
   elements.envelope.classList.add('opened');
   if (hint) hint.classList.add('fade');
 
+  const delay1 = window.innerWidth < 768 ? 1000 : 600;
+  const delay2 = window.innerWidth < 768 ? 1600 : 1200;
+  const delay3 = window.innerWidth < 768 ? 2200 : 1700;
+
   setTimeout(() => {
     elements.envelope.classList.add('letter-exit');
-  }, 600);
+  }, delay1);
 
   setTimeout(() => {
     elements.envelopeWrapper.classList.add('fade-out');
-  }, 1200);
+  }, delay2);
 
   setTimeout(() => {
     elements.envelopeWrapper.classList.add('hidden');
     elements.finalContent.classList.remove('hidden');
     elements.finalContent.classList.add('reveal');
     triggerConfetti();
-  }, 1700);
+  }, delay3);
 }
 
 function handleCopyMessage() {
