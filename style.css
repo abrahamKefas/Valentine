@@ -1626,33 +1626,191 @@ body {
     background-size: auto !important;
   }
 
-  /* Disable all animations on mobile */
+  /* Enable animations with very slow speed for mobile */
   .shape {
-    animation: none !important;
-    opacity: 0.15;
+    animation: floatMobileSlow 30s ease-in-out infinite;
+    opacity: 0.2;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @keyframes floatMobileSlow {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(0, -3px, 0);
+    }
   }
 
   .float-heart {
-    animation: none !important;
-    opacity: 0.6;
+    animation: floatHeartMobileSlow 8s ease-in-out infinite;
+    opacity: 0.7;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
   }
 
-  .float-heart:nth-child(1),
-  .float-heart:nth-child(2),
+  @keyframes floatHeartMobileSlow {
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0) rotate(-5deg);
+    }
+    50% {
+      transform: translate3d(0, -10px, 0) rotate(5deg);
+    }
+  }
+
+  .float-heart:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .float-heart:nth-child(2) {
+    animation-delay: 1s;
+  }
+
   .float-heart:nth-child(3) {
-    animation: none !important;
-  }
-
-  .title-main,
-  .title-cursive,
-  .badge {
-    animation: none;
-    filter: none;
+    animation-delay: 2s;
   }
 
   .sparkle {
-    animation: none !important;
+    animation: sparkleMobileSlow 5s ease-in-out infinite;
+    opacity: 0.5;
+    will-change: opacity;
+  }
+
+  @keyframes sparkleMobileSlow {
+    0%,
+    100% {
+      opacity: 0.1;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+  }
+
+  .bouquet-glow {
+    animation: bouquetGlowMobileSlow 5s ease-in-out infinite;
     opacity: 0.3;
+    will-change: transform, opacity;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @keyframes bouquetGlowMobileSlow {
+    0%,
+    100% {
+      transform: translate3d(-50%, -50%, 0) scale(0.85);
+      opacity: 0.2;
+    }
+    50% {
+      transform: translate3d(-50%, -50%, 0) scale(1.1);
+      opacity: 0.4;
+    }
+  }
+
+  .bouquet-svg,
+  .bouquet-img {
+    animation: bouquetSwayMobileSlow 6s ease-in-out infinite;
+    will-change: transform;
+    filter: none !important;
+  }
+
+  @keyframes bouquetSwayMobileSlow {
+    0%,
+    100% {
+      transform: rotate(-1.5deg);
+    }
+    50% {
+      transform: rotate(1.5deg);
+    }
+  }
+
+  .message-decoration {
+    animation: twinkleMobileSlow 5s ease-in-out infinite;
+    opacity: 0.4;
+    will-change: opacity;
+  }
+
+  @keyframes twinkleMobileSlow {
+    0%,
+    100% {
+      opacity: 0.15;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.1);
+    }
+  }
+
+  .message-decoration.right {
+    animation-delay: 2.5s;
+  }
+
+  .music-btn.playing .music-pulse {
+    animation: musicPulseMobileSlow 3s ease-in-out infinite;
+    opacity: 0.15;
+  }
+
+  @keyframes musicPulseMobileSlow {
+    0%,
+    100% {
+      transform: scale(0.8);
+      opacity: 0.05;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 0.25;
+    }
+  }
+
+  .final-emoji {
+    animation: heartPumpMobileSlow 3s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes heartPumpMobileSlow {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+  }
+
+  .letter-heart {
+    animation: letterHeartPulseMobileSlow 2.5s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  @keyframes letterHeartPulseMobileSlow {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.06);
+    }
+  }
+
+  .envelope-hint {
+    animation: hintPulseMobileSlow 4s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+
+  @keyframes hintPulseMobileSlow {
+    0%,
+    100% {
+      opacity: 0.4;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateY(-1.5px);
+    }
   }
 
   .petal {
@@ -1743,10 +1901,10 @@ body {
     animation: none !important;
   }
 
-  /* Disable all photo animations */
+  /* Disable all photo animations completely */
   .photo-item {
     animation: none !important;
-    opacity: 1;
+    opacity: 1 !important;
   }
 
   .photo-item:nth-child(1),
@@ -1759,15 +1917,19 @@ body {
   .photo-item:nth-child(8),
   .photo-item:nth-child(9) {
     animation: none !important;
+    animation-delay: 0s !important;
+    transform: scale(1) rotate(0deg) translateY(0) !important;
+    opacity: 1 !important;
   }
 
   .photo-item:hover {
-    transform: none;
-    box-shadow: none;
+    transform: none !important;
+    box-shadow: none !important;
   }
 
   .photo-preview {
-    transition: none;
+    transition: none !important;
+    transform: scale(1) !important;
   }
 
   /* Disable filters and shadows */
