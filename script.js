@@ -65,7 +65,9 @@ const elements = {
 };
 
 function createSparkles() {
-  for (let i = 0; i < 20; i++) {
+  // Reduce sparkles on mobile
+  const sparkleCount = window.innerWidth < 768 ? 8 : 20;
+  for (let i = 0; i < sparkleCount; i++) {
     const sparkle = document.createElement('div');
     sparkle.className = 'sparkle';
     sparkle.style.left = Math.random() * 100 + '%';
@@ -134,11 +136,16 @@ function handleTakeBouquet() {
 let petalInterval;
 function startFallingPetals() {
   elements.petalsContainer.innerHTML = '';
-  for (let i = 0; i < 15; i++) setTimeout(() => createPetal(), i * 200);
+  // Reduce petals on mobile
+  const petalCount = window.innerWidth < 768 ? 8 : 15;
+  const petalDelay = window.innerWidth < 768 ? 300 : 200;
+  for (let i = 0; i < petalCount; i++)
+    setTimeout(() => createPetal(), i * petalDelay);
   if (petalInterval) clearInterval(petalInterval);
+  const petalInterval2 = window.innerWidth < 768 ? 1000 : 600;
   petalInterval = setInterval(() => {
     if (state.currentPage === 3) createPetal();
-  }, 600);
+  }, petalInterval2);
 }
 
 function createPetal() {
@@ -171,7 +178,9 @@ function handlePhotoUpload(index, event) {
 function triggerConfetti() {
   elements.confettiContainer.innerHTML = '';
   const hearts = ['💖', '💕', '💗', '💓', '💞', '💝', '❤️', '🩷', '✨', '🌸'];
-  for (let i = 0; i < 60; i++) {
+  // Reduce confetti on mobile
+  const confettiCount = window.innerWidth < 768 ? 25 : 60;
+  for (let i = 0; i < confettiCount; i++) {
     setTimeout(() => {
       const confetti = document.createElement('span');
       confetti.className = 'confetti-heart';
@@ -302,7 +311,8 @@ class ParticleSystem {
     this.canvas = elements.heartCanvas;
     this.ctx = this.canvas.getContext('2d');
     this.particles = [];
-    this.particleCount = 35;
+    // Reduce particle count on mobile
+    this.particleCount = window.innerWidth < 768 ? 15 : 35;
     this.resize();
     this.init();
     this.animate();
@@ -377,9 +387,14 @@ function initEventListeners() {
 }
 
 function initMouseTrail() {
+  // Disable mouse trail on touch devices
+  if (window.matchMedia('(hover: none)').matches) {
+    return; // Touch device, skip mouse trail
+  }
+
   const hearts = ['💕', '💗', '💖', '💓', '🩷', '✨'];
   let lastTime = 0;
-  const throttleMs = 50;
+  const throttleMs = 100; // Increased throttle for better performance
 
   document.addEventListener('mousemove', (e) => {
     const now = Date.now();

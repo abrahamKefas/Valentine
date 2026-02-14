@@ -1618,6 +1618,153 @@ body {
   }
 }
 
+/* Mobile optimization for Android/low-end devices */
+@media (max-width: 767px) {
+  .bg-gradient {
+    animation: none;
+    background: linear-gradient(135deg, #fdf2f8, #fbcfe8) !important;
+    background-size: auto !important;
+  }
+
+  .shape {
+    animation: none;
+    opacity: 0.15;
+  }
+
+  .float-heart {
+    animation: none;
+    opacity: 0.5;
+  }
+
+  .title-main,
+  .title-cursive,
+  .badge {
+    animation: none;
+    filter: none;
+  }
+
+  .sparkle {
+    animation: none;
+    opacity: 0.2;
+  }
+
+  .petal {
+    animation: petalFallMobile linear infinite;
+  }
+
+  @keyframes petalFallMobile {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.4;
+    }
+    90% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg) translateX(30px);
+      opacity: 0;
+    }
+  }
+
+  .confetti-heart {
+    animation: confettiFallMobile 3s ease-in forwards !important;
+  }
+
+  @keyframes confettiFallMobile {
+    0% {
+      opacity: 1;
+      transform: translateY(-50px) rotate(0deg) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(100vh) rotate(360deg) scale(0.3);
+    }
+  }
+
+  .btn {
+    transition: all 0.15s ease;
+  }
+
+  .btn:hover .btn-shine {
+    left: 100%;
+  }
+
+  .page {
+    transition: all 0.25s ease;
+  }
+
+  .bouquet-glow {
+    animation: none;
+    opacity: 0;
+  }
+
+  .bouquet-svg,
+  .bouquet-img {
+    animation: none;
+  }
+
+  .emoji-bounce {
+    animation: none;
+  }
+
+  .message-decoration {
+    animation: none;
+    opacity: 0.3;
+  }
+
+  .music-btn.playing .music-pulse {
+    animation: none;
+    opacity: 0;
+  }
+
+  .final-emoji {
+    animation: none;
+  }
+
+  /* Disable drop-shadow filters on mobile for better performance */
+  .float-heart,
+  .currency {
+    filter: none;
+  }
+
+  .envelope {
+    width: 240px;
+    height: 165px;
+  }
+
+  .envelope-flap {
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 82.5px solid #fce7f3;
+  }
+
+  .envelope-front::before {
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 52.5px solid #fbcfe8;
+  }
+
+  .letter-heart {
+    font-size: 2rem;
+  }
+
+  .letter-text {
+    font-size: 1.1rem;
+  }
+
+  .envelope-hint {
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  .envelope.opened .letter {
+    transform: translateY(-120px) scale(1.05);
+  }
+}
+
 @media (min-width: 768px) {
   .envelope {
     width: 320px;
