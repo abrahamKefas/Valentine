@@ -1626,50 +1626,21 @@ body {
     background-size: auto !important;
   }
 
+  /* Disable all animations on mobile */
   .shape {
-    animation: floatMobile 20s ease-in-out infinite;
-    opacity: 0.3;
-    will-change: transform;
-    transform: translate3d(0, 0, 0);
-  }
-
-  @keyframes floatMobile {
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-    50% {
-      transform: translate3d(0, -5px, 0);
-    }
+    animation: none !important;
+    opacity: 0.15;
   }
 
   .float-heart {
-    animation: floatHeartMobile 4s ease-in-out infinite;
-    opacity: 0.8;
-    will-change: transform;
-    transform: translate3d(0, 0, 0);
+    animation: none !important;
+    opacity: 0.6;
   }
 
-  @keyframes floatHeartMobile {
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0) rotate(-5deg);
-    }
-    50% {
-      transform: translate3d(0, -12px, 0) rotate(5deg);
-    }
-  }
-
-  .float-heart:nth-child(1) {
-    animation-delay: 0s;
-  }
-
-  .float-heart:nth-child(2) {
-    animation-delay: 0.6s;
-  }
-
+  .float-heart:nth-child(1),
+  .float-heart:nth-child(2),
   .float-heart:nth-child(3) {
-    animation-delay: 1.2s;
+    animation: none !important;
   }
 
   .title-main,
@@ -1680,21 +1651,8 @@ body {
   }
 
   .sparkle {
-    animation: sparkleMobile 3s ease-in-out infinite;
-    opacity: 0.6;
-    will-change: opacity;
-  }
-
-  @keyframes sparkleMobile {
-    0%,
-    100% {
-      opacity: 0.2;
-      transform: scale(0.8);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1);
-    }
+    animation: none !important;
+    opacity: 0.3;
   }
 
   .petal {
@@ -1720,12 +1678,10 @@ body {
 
   .petal {
     animation-duration: 8s !important;
-    will-change: transform;
   }
 
   .confetti-heart {
     animation: confettiFallMobile 6s ease-in forwards !important;
-    will-change: transform;
   }
 
   @keyframes confettiFallMobile {
@@ -1749,196 +1705,60 @@ body {
 
   .page {
     transition: all 0.5s ease;
-    will-change: transform, opacity;
   }
 
   .bouquet-glow {
-    animation: bouquetGlowMobile 3s ease-in-out infinite;
-    opacity: 0.4;
-    will-change: transform, opacity;
-    transform: translate3d(0, 0, 0);
-  }
-
-  @keyframes bouquetGlowMobile {
-    0%,
-    100% {
-      transform: translate3d(-50%, -50%, 0) scale(0.9);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translate3d(-50%, -50%, 0) scale(1.05);
-      opacity: 0.5;
-    }
+    animation: none !important;
+    opacity: 0;
   }
 
   .bouquet-svg,
   .bouquet-img {
-    animation: bouquetSwayMobile 4s ease-in-out infinite;
-    will-change: transform;
-    filter: none !important;
-  }
-
-  @keyframes bouquetSwayMobile {
-    0%,
-    100% {
-      transform: rotate(-2deg);
-    }
-    50% {
-      transform: rotate(2deg);
-    }
+    animation: none !important;
   }
 
   .emoji-bounce {
-    animation: emojiBounce 2s ease-in-out infinite;
-    will-change: transform;
+    animation: none !important;
   }
 
   .message-decoration {
-    animation: twinkleMobile 3s ease-in-out infinite;
-    opacity: 0.4;
-    will-change: opacity;
-  }
-
-  @keyframes twinkleMobile {
-    0%,
-    100% {
-      opacity: 0.2;
-      transform: scale(0.9);
-    }
-    50% {
-      opacity: 0.6;
-      transform: scale(1.1);
-    }
-  }
-
-  .message-decoration.right {
-    animation-delay: 1.5s;
-  }
-
-  .music-btn.playing .music-pulse {
-    animation: musicPulseMobile 2s ease-in-out infinite;
+    animation: none !important;
     opacity: 0.2;
   }
 
-  @keyframes musicPulseMobile {
-    0%,
-    100% {
-      transform: scale(0.8);
-      opacity: 0.1;
-    }
-    50% {
-      transform: scale(1.1);
-      opacity: 0.3;
-    }
+  .message-decoration.right {
+    animation: none !important;
+  }
+
+  .music-btn.playing .music-pulse {
+    animation: none !important;
+    opacity: 0;
   }
 
   .music-icon {
-    transition: none;
+    transition: none !important;
   }
 
   .final-emoji {
-    animation: heartPumpMobile 2s ease-in-out infinite;
-    will-change: transform;
+    animation: none !important;
   }
 
-  @keyframes heartPumpMobile {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
-
-  /* Optimize photo animations */
+  /* Disable all photo animations */
   .photo-item {
-    animation: photoEntranceMobile 0.6s ease-out backwards !important;
-    will-change: transform, opacity;
+    animation: none !important;
+    opacity: 1;
   }
 
-  .photo-item:nth-child(1) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3s ease-in-out infinite !important;
-    animation-delay: 0s, 0s;
-  }
-
-  .photo-item:nth-child(2) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3.2s ease-in-out infinite !important;
-    animation-delay: 0.1s, 0.4s;
-  }
-
-  .photo-item:nth-child(3) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3.4s ease-in-out infinite !important;
-    animation-delay: 0.2s, 0.8s;
-  }
-
-  .photo-item:nth-child(4) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3s ease-in-out infinite !important;
-    animation-delay: 0.3s, 1.2s;
-  }
-
-  .photo-item:nth-child(5) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3.3s ease-in-out infinite !important;
-    animation-delay: 0.4s, 1.6s;
-  }
-
-  .photo-item:nth-child(6) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3.1s ease-in-out infinite !important;
-    animation-delay: 0.5s, 2s;
-  }
-
-  .photo-item:nth-child(7) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3.5s ease-in-out infinite !important;
-    animation-delay: 0.6s, 2.4s;
-  }
-
-  .photo-item:nth-child(8) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3.2s ease-in-out infinite !important;
-    animation-delay: 0.7s, 2.8s;
-  }
-
+  .photo-item:nth-child(1),
+  .photo-item:nth-child(2),
+  .photo-item:nth-child(3),
+  .photo-item:nth-child(4),
+  .photo-item:nth-child(5),
+  .photo-item:nth-child(6),
+  .photo-item:nth-child(7),
+  .photo-item:nth-child(8),
   .photo-item:nth-child(9) {
-    animation:
-      photoEntranceMobile 0.6s ease-out backwards,
-      photoFloatMobile 3.4s ease-in-out infinite !important;
-    animation-delay: 0.8s, 3.2s;
-  }
-
-  @keyframes photoEntranceMobile {
-    from {
-      opacity: 0;
-      transform: scale(0.8) rotate(-5deg);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) rotate(0deg);
-    }
-  }
-
-  @keyframes photoFloatMobile {
-    0%,
-    100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    50% {
-      transform: translateY(-5px) rotate(1deg);
-    }
+    animation: none !important;
   }
 
   .photo-item:hover {
@@ -1950,10 +1770,13 @@ body {
     transition: none;
   }
 
-  /* Disable drop-shadow filters on mobile for better performance */
+  /* Disable filters and shadows */
   .float-heart,
-  .currency {
-    filter: none;
+  .currency,
+  .bouquet-svg,
+  .bouquet-img {
+    filter: none !important;
+    box-shadow: none !important;
   }
 
   .envelope {
@@ -1975,18 +1798,7 @@ body {
 
   .letter-heart {
     font-size: 2rem;
-    animation: letterHeartPulseMobile 1.5s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  @keyframes letterHeartPulseMobile {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.08);
-    }
+    animation: none !important;
   }
 
   .letter-text {
@@ -1996,27 +1808,14 @@ body {
   .envelope-hint {
     font-size: 1rem;
     margin-top: 20px;
-    animation: hintPulseMobile 2.5s ease-in-out infinite;
-    will-change: transform, opacity;
-  }
-
-  @keyframes hintPulseMobile {
-    0%,
-    100% {
-      opacity: 0.5;
-      transform: translateY(0);
-    }
-    50% {
-      opacity: 0.8;
-      transform: translateY(-2px);
-    }
+    animation: none !important;
   }
 
   .envelope.opened .letter {
     transform: translateY(-120px) scale(1.05);
   }
 
-  /* Disable expensive backdrop-filter on mobile */
+  /* Disable backdrop-filter */
   .music-btn,
   .glass-card,
   .btn-no,
@@ -2030,21 +1829,362 @@ body {
     background: rgba(255, 255, 255, 0.95) !important;
   }
 
-  /* Simplify shadows on mobile for better performance */
-  .float-heart,
-  .sparkle,
-  .bouquet-svg,
-  .bouquet-img {
-    filter: none !important;
-    box-shadow: none !important;
-  }
-
+  /* Remove shadows */
   .music-btn,
   .btn-yes,
   .btn-primary,
   .glass-card {
     box-shadow: none !important;
   }
+}
+
+.petal {
+  animation: petalFallMobile linear infinite;
+}
+
+@keyframes petalFallMobile {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg) translateX(30px);
+    opacity: 0;
+  }
+}
+
+.petal {
+  animation-duration: 8s !important;
+  will-change: transform;
+}
+
+.confetti-heart {
+  animation: confettiFallMobile 6s ease-in forwards !important;
+  will-change: transform;
+}
+
+@keyframes confettiFallMobile {
+  0% {
+    opacity: 1;
+    transform: translateY(-50px) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(360deg) scale(0.3);
+  }
+}
+
+.btn {
+  transition: all 0.4s ease;
+}
+
+.btn:hover .btn-shine {
+  left: 100%;
+}
+
+.page {
+  transition: all 0.5s ease;
+  will-change: transform, opacity;
+}
+
+.bouquet-glow {
+  animation: bouquetGlowMobile 3s ease-in-out infinite;
+  opacity: 0.4;
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes bouquetGlowMobile {
+  0%,
+  100% {
+    transform: translate3d(-50%, -50%, 0) scale(0.9);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate3d(-50%, -50%, 0) scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+.bouquet-svg,
+.bouquet-img {
+  animation: bouquetSwayMobile 4s ease-in-out infinite;
+  will-change: transform;
+  filter: none !important;
+}
+
+@keyframes bouquetSwayMobile {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+.emoji-bounce {
+  animation: emojiBounce 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.message-decoration {
+  animation: twinkleMobile 3s ease-in-out infinite;
+  opacity: 0.4;
+  will-change: opacity;
+}
+
+@keyframes twinkleMobile {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+.message-decoration.right {
+  animation-delay: 1.5s;
+}
+
+.music-btn.playing .music-pulse {
+  animation: musicPulseMobile 2s ease-in-out infinite;
+  opacity: 0.2;
+}
+
+@keyframes musicPulseMobile {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.3;
+  }
+}
+
+.music-icon {
+  transition: none;
+}
+
+.final-emoji {
+  animation: heartPumpMobile 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes heartPumpMobile {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Optimize photo animations */
+.photo-item {
+  animation: photoEntranceMobile 0.6s ease-out backwards !important;
+  will-change: transform, opacity;
+}
+
+.photo-item:nth-child(1) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3s ease-in-out infinite !important;
+  animation-delay: 0s, 0s;
+}
+
+.photo-item:nth-child(2) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3.2s ease-in-out infinite !important;
+  animation-delay: 0.1s, 0.4s;
+}
+
+.photo-item:nth-child(3) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3.4s ease-in-out infinite !important;
+  animation-delay: 0.2s, 0.8s;
+}
+
+.photo-item:nth-child(4) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3s ease-in-out infinite !important;
+  animation-delay: 0.3s, 1.2s;
+}
+
+.photo-item:nth-child(5) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3.3s ease-in-out infinite !important;
+  animation-delay: 0.4s, 1.6s;
+}
+
+.photo-item:nth-child(6) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3.1s ease-in-out infinite !important;
+  animation-delay: 0.5s, 2s;
+}
+
+.photo-item:nth-child(7) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3.5s ease-in-out infinite !important;
+  animation-delay: 0.6s, 2.4s;
+}
+
+.photo-item:nth-child(8) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3.2s ease-in-out infinite !important;
+  animation-delay: 0.7s, 2.8s;
+}
+
+.photo-item:nth-child(9) {
+  animation:
+    photoEntranceMobile 0.6s ease-out backwards,
+    photoFloatMobile 3.4s ease-in-out infinite !important;
+  animation-delay: 0.8s, 3.2s;
+}
+
+@keyframes photoEntranceMobile {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+@keyframes photoFloatMobile {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+.photo-item:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.photo-preview {
+  transition: none;
+}
+
+/* Disable drop-shadow filters on mobile for better performance */
+.float-heart,
+.currency {
+  filter: none;
+}
+
+.envelope {
+  width: 240px;
+  height: 165px;
+}
+
+.envelope-flap {
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-top: 82.5px solid #fce7f3;
+}
+
+.envelope-front::before {
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-top: 52.5px solid #fbcfe8;
+}
+
+.letter-heart {
+  font-size: 2rem;
+  animation: letterHeartPulseMobile 1.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes letterHeartPulseMobile {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+.letter-text {
+  font-size: 1.1rem;
+}
+
+.envelope-hint {
+  font-size: 1rem;
+  margin-top: 20px;
+  animation: hintPulseMobile 2.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes hintPulseMobile {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-2px);
+  }
+}
+
+.envelope.opened .letter {
+  transform: translateY(-120px) scale(1.05);
+}
+
+/* Disable expensive backdrop-filter on mobile */
+.music-btn,
+.glass-card,
+.btn-no,
+.btn-ghost {
+  backdrop-filter: none !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.btn-no,
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Simplify shadows on mobile for better performance */
+.float-heart,
+.sparkle,
+.bouquet-svg,
+.bouquet-img {
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+.music-btn,
+.btn-yes,
+.btn-primary,
+.glass-card {
+  box-shadow: none !important;
 }
 
 @media (min-width: 768px) {
