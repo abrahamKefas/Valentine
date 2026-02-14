@@ -22,7 +22,7 @@ const CONFIG = {
     'Sejak kamu hadir, hal sederhana pun terasa istimewa. Happy Valentine, my favorite person. 💕',
   nextCollageButton: 'Satu halaman lagi… ',
   finalTitle: 'Happy Valentine, My Love 💞',
-  finalMessage: ` Makasih ya sudah hadir dan bikin hariku selalu terasa lebih indah. Kamu adalah alasan kenapa senyum itu jadi mudah muncul setiap hari. Kamu bukan cuma pacar, tapi juga rumah buat aku ❤️ Semoga hari-harimu selalu penuh kebahagiaan, dan kamu tahu kalau aku selalu ada untukmu. Semoga kita terus bareng, hari ini, besok, dan seterusnya. Di hari penuh cinta ini, aku juga mau minta maaf kalau selama ini aku masih banyak kurangnya, masih sering bikin kamu kesel atau kecewa. Aku memang nggak sempurna, tapi aku selalu berusaha jadi lebih baik buat kamu. Terima kasih sudah sabar dan tetap pilih aku. Happy Valentine, Cindy cayangku 💕`,
+  finalMessage: ` Makasih ya sudah hadir dan bikin hariku selalu terasa lebih indah. Kamu adalah alasan kenapa senyum itu jadi mudah muncul setiap hari. Kamu bukan cuma pacar, tapi juga rumah buat aku ❤️ Semoga hari-harimu selalu penuh kebahagiaan, dan kamu tahu kalau aku selalu ada untukmu. Semoga kita terus bareng, hari ini, besok, dan seterusnya. Di hari Valentine ini, aku juga mau minta maaf kalau selama ini aku masih banyak kurangnya, masih sering bikin kamu kesel atau kecewa. Aku memang nggak sempurna, tapi aku selalu berusaha jadi lebih baik buat kamu. Terima kasih sudah sabar dan tetap pilih aku. Happy Valentine, Cindy cayangku 💕`,
   restartButton: 'Restart ',
   copyButton: 'Copy Message ',
   copySuccess: 'Pesan berhasil dicopy! ',
