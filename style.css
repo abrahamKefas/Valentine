@@ -1763,6 +1763,36 @@ body {
   .envelope.opened .letter {
     transform: translateY(-120px) scale(1.05);
   }
+
+  /* Disable expensive backdrop-filter on mobile */
+  .music-btn,
+  .glass-card,
+  .btn-no,
+  .btn-ghost {
+    backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .btn-no,
+  .btn-ghost {
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  /* Simplify shadows on mobile for better performance */
+  .float-heart,
+  .sparkle,
+  .bouquet-svg,
+  .bouquet-img {
+    filter: none !important;
+    box-shadow: none !important;
+  }
+
+  .music-btn,
+  .btn-yes,
+  .btn-primary,
+  .glass-card {
+    box-shadow: none !important;
+  }
 }
 
 @media (min-width: 768px) {

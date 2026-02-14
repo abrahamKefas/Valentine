@@ -308,11 +308,16 @@ class HeartParticle {
 
 class ParticleSystem {
   constructor() {
+    // Disable particle system on mobile entirely
+    if (window.innerWidth < 768) {
+      this.canvas = elements.heartCanvas;
+      this.canvas.style.display = 'none';
+      return;
+    }
     this.canvas = elements.heartCanvas;
     this.ctx = this.canvas.getContext('2d');
     this.particles = [];
-    // Reduce particle count on mobile
-    this.particleCount = window.innerWidth < 768 ? 15 : 35;
+    this.particleCount = 35;
     this.resize();
     this.init();
     this.animate();
@@ -416,7 +421,10 @@ function initMouseTrail() {
 document.addEventListener('DOMContentLoaded', () => {
   applyConfig();
   initEventListeners();
-  createSparkles();
+  // Disable sparkles on mobile
+  if (window.innerWidth >= 768) {
+    createSparkles();
+  }
   new ParticleSystem();
   initMouseTrail();
 });
